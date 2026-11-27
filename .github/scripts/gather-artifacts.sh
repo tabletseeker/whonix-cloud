@@ -72,7 +72,7 @@ else
 fi
 
 if [[ "${BUILD_FRESHNESS:-frozen}" != "frozen" ]]; then
-  FROZEN_SRC_STR="🔥 Unfrozen"
+  FROZEN_SRC_STR="🔥 Hot"
 else
   FROZEN_SRC_STR="🧊 Frozen"
 fi
@@ -109,10 +109,10 @@ cat <<EOF > "${RELEASE_NOTES_FILE}"
 | **Target Architecture** | \`${BUILD_ARCH:-unknown}\` |
 | **Output Format Target** | \`${dist_build_multi_target_list:-unknown}\` |
 | **System Footprint Type** | \`${BUILD_TYPE:-unknown}\` |
-| **Repository Freshness** | \`${BUILD_FRESHNESS:-unknown}\` |
 | **Container Build Engine** | \`${ENGINE:-unknown}\` |
-| **Frozen Sources Status** | ${FROZEN_SRC_STR} |
+| **Repository Freshness** | ${FROZEN_SRC_STR} |
 | **Enforcing Clean Git** | ${GIT_CLEAN_STR} |
+| **Release Build Type** | \`${BUILD_MODE}\` |
 | **Release Version Tag** | \`${CHOSEN_VERSION:-unknown}\` |
 
 EOF
